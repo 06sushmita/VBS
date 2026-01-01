@@ -5,23 +5,57 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "notification")
 public class Notification {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    @Column(nullable = false)
-    int userId;
-    @Column(nullable = false)
-    String username;
-    @Column(nullable = false)
-    String message;
+    private int id;
 
+    @Column(name = "user_id", nullable = false)
+    private int userId;
 
+    @Column(nullable = false)
+    private String username;
 
-    public void setUserId(int id) {
+    @Column(nullable = false)
+    private String message;
+
+    // getters & setters
+    public int getId() {
+        return id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
+
+
+
+
+
+

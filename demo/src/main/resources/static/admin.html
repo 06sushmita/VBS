@@ -691,6 +691,61 @@
                 gap: 5px;
             }
         }
+
+        .admin-header h2::after {
+    content: " • Control Center";
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+    top: -40px;
+    right: -40px;
+}
+
+.stat-card p {
+    letter-spacing: 0.4px;
+}
+
+.user-role {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.users-section h3::after {
+    content: " 👥";
+}
+
+.btn-add-user::after {
+    content: " (Admin)";
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.users-table tbody tr {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.users-table tbody tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.confirm-title::after {
+    content: " ⚠️";
+}
+
     </style>
 </head>
 <body>

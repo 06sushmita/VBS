@@ -164,6 +164,34 @@
                 padding: 10px;
             }
         }
+        .header h1::after {
+    content: " • Activity Log";
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.history-table tbody tr {
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.history-table tbody tr:hover {
+    transform: scale(1.005);
+}
+
+.history-table td {
+    vertical-align: middle;
+}
+
+.date::before {
+    content: "🕒 ";
+}
+
+.history-empty {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+
     </style>
 </head>
 <body>

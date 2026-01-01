@@ -54,14 +54,14 @@ public class TransactionController {
             return "Insufficient Balance";
         }
         userRepo.save(user);
-        if (newBalance == 0) {
+        if (newBalance <= 0.01) {
             Notification n = new Notification();
-            n.setUserId(user.getId());
+            n.setUserId(obj.getId());
             n.setUsername(user.getUsername());
             n.setMessage("Your account balance is zero. Please deposit funds.");
-
             notificationRepo.save(n);
         }
+
 
         Transaction t = new Transaction();
         t.setAmount(obj.getAmount());
@@ -111,14 +111,14 @@ public class TransactionController {
         rec.setBalance(rbalance);
         userRepo.save(sender);
         userRepo.save(rec);
-        if (sender.getBalance() == 0) {
+        if (sender.getBalance() <= 0.01) {
             Notification n = new Notification();
-            n.setUserId(sender.getId());
+            n.setUserId(obj.getId());
             n.setUsername(sender.getUsername());
             n.setMessage("Your account balance is zero after transfer.");
-
             notificationRepo.save(n);
         }
+
 
 
         Transaction t1 = new Transaction();

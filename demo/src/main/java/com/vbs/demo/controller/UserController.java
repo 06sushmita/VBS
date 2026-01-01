@@ -40,14 +40,7 @@ public class UserController {
         History history=new History();
         history.setDescription("User Self Created : "+user.getUsername());
         historyRepo.save(history);
-        if (user.getBalance() == 0) {
-            Notification n = new Notification();
-            n.setUserId(user.getId());
-            n.setUsername(user.getUsername());
-            n.setMessage("Your account balance is zero after transfer.");
 
-            notificationRepo.save(n);
-        }
 
         userRepo.save(user);
 
@@ -65,7 +58,15 @@ public class UserController {
             return "Password incorrect";
         }
         if(!u.getRole().equals(user.getRole())){
-            return "Password incorrect";
+            return "Role incorrect";
+        }
+        if (user.getBalance() == 0) {
+            Notification n = new Notification();
+            n.setUserId(user.getId());
+            n.setUsername(user.getUsername());
+            n.setMessage("Your account balance is zero after transfer.");
+
+            notificationRepo.save(n);
         }
         return String.valueOf(user.getId());
     }
